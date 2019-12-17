@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}SenHopital{% endblock %}</title>
+        {% block stylesheets %}
+       
+
+        {% endblock %}
+    </head>
+{% block body %}
+
+
+   {# <table align="center">
+   <tr>
+     <div class="form-group">
+<div class="col-lg-6">
+       <td> <input type="text" name="_username" required class="form-control" placeholder="Adresse email..."> </td>
+</tr>
+<tr>
+        </div></div>
+         <div class="form-group">
+<div class="col-lg-6">
+   <td>   <input type="password" name="_password" required class="form-control" placeholder="Mot de Passe..."> </td>
+    </div>
+    </div>
+     </tr>
+    <tr>
+  <td> <span> Vous n'etes pas membre cliquez ici </span> <a class="nav-link" href="{{ path('security_registration')}}">S'inscrire</a> </td>
+
+</tr>
+<tr>
+    <div class="form-group">
+  <td>      <button type="submit" class="btn btn-success"> Connexion! </td>
+   </button>
+    </div>
+</tr>
+     </table> #} 
+
+
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+
+<!------ Include the above in your HEAD tag ---------->
+
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+       <link rel="stylesheet" href="/css/login.css" type="text/css">
+<body>
+    <div class="container">
+        <div class="row">
+			<div class="col-md-5 mx-auto">
+			<div id="first">
+				<div class="myform form ">
+					 <div class="logo mb-3">
+						 <div class="col-md-12 text-center">
+							<h1>Login</h1>
+
+                     {% if error %}
+                        <span class="error">Votre login ou mot de passe est incorrect !!!</span>
+                     {% endif %}
+						 </div>
+					</div>
+                   <form action="{{ path('security_login') }}" method="POST">
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Adresse Email</label>
+                              <input type="text" name="_username" value="{{ last_username }}" required class="form-control" id="email" aria-describedby="emailHelp" placeholder="Entrer votre email">
+                           </div>
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Mot de Passe</label>
+                              <input type="password" name="_password" id="password"  required class="form-control" aria-describedby="emailHelp" placeholder="Entrer votre mot de passe">
+                           </div>
+                           <div class="form-group">
+                              <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
+                           </div>
+                           <div class="col-md-12 text-center ">
+                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Se connecter</button>
+                           </div>
+                           <div class="col-md-12 ">
+                              <div class="login-or">
+                                 <hr class="hr-or">
+                                 <span class="span-or">ou</span>
+                              </div>
+                           </div>
+                           <div class="col-md-12 mb-3">
+                              <p class="text-center">
+                                 <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus">
+                                 </i> Signup using Google
+                                 </a>
+                              </p>
+                           </div>
+                           <div class="form-group">
+                              <p class="text-center">Vous n'avez pas de compte? <a href="{{path('security_registration')}}" id="signup">Cliquez ici</a></p>
+                           </div>
+
+                           <p class="text-center">Powered by<a href="https://www.linkedin.com/in/abdoulaye-wade-9373a4143/"> Son Excellence WADE</a></p>
+                        </form>
+                 
+				</div>
+			</div>
+			  <div id="second">
+			      <div class="myform form ">
+                        <div class="logo mb-3">
+                           <div class="col-md-12 text-center">
+                             
+                           </div>
+                        </div>
+
+  
+
+
+
+                       {#  <form action="{{ path('security_registration') }}" name="registration">
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Prenom</label>
+                              <input type="text"  name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter Firstname">
+                           </div>
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Nom</label>
+                              <input type="text"  name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter Lastname">
+                           </div>
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Adresse Email</label>
+                              <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                           </div>
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Mot de Passe</label>
+                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                           </div>
+                           <div class="col-md-12 text-center mb-3">
+                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Get Started For Free</button>
+                           </div>
+                           <div class="col-md-12 ">
+                              <div class="form-group">
+                                 <p class="text-center"><a href="#" id="signin">Already have an account?</a></p>
+                              </div>
+                           </div>
+                            </div>
+           </form> #}
+        </div>
+			</div>
+		</div>
+      </div> 
+
+     {% block javascripts %}
+         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/form.js"> </script>
+      {% endblock %}  
+         
+</body>
+        
+ 
+        {% endblock %}
+    
+</html>
+

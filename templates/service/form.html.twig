@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% if editService %}
+
+ Formulaire de Modifiaction de Service
+
+{% else %}
+    
+ Formulaire d'ajout d'un Service
+    
+{% endif %}
+{% endblock %} 
+
+
+{% block body %}
+
+{% if editService %}
+    <h2> Modification du Service </h2>
+{% else %}
+     <h2> Ajout d'un Service </h2>
+{% endif %}    
+
+{{form_start(form)}}
+
+<div class="form-group">
+<div class="col-lg-4">
+{{ form_row(form.libelle, { 'attr': { 'class' : "control", 'placeholder' : "Entrer un Service" }} ) }}
+
+</div></div>
+<button type="submit" class="btn btn-primary" > 
+
+{% if editService %}
+    
+    Modifier 
+
+{% else %}
+    
+    Ajouter
+
+{% endif %}
+
+  </button>
+  
+{{form_end(form)}}
+
+{% endblock %}
+
+

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage des Specialites{% endblock %}
+
+    
+
+{% block content %}
+
+<table  align="center" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id </th>
+            <th>Libellé</th>
+            <th>Service</th>
+            <th>Modification</th>
+            <th>Suppression</th>     
+         
+        </tr>
+    </thead>
+    <tbody>
+       {% for specialite in specialites %}
+        <tr>
+            <td scope="row">{{ specialite.id }}</td>
+         
+          <td> {{ specialite.libelle }} </td>
+          <td> {{ specialite.service.libelle }} </td>
+            <td> <a href="{{path('admin.specialite.edit',  { id: specialite.id } ) }}" class="btn btn-outline-primary my-2 my-sm-0"> Modifier </a> </td>
+            <td> <a href="{{path('admin.specialite.delete',  { id: specialite.id } ) }}" class="btn btn-outline-danger my-2 my-sm-0"> Supprimer </a> </td>
+        </tr>
+         {% endfor %}
+       {#  <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+        </tr> #}
+    </tbody>
+</table>
+
+{% endblock %}

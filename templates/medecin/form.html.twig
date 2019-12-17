@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% if editMedecin %}
+
+ Formulaire de Modifiaction du Medecin
+
+{% else %}
+    
+ Formulaire d'ajout d'un Medecin
+    
+{% endif %}
+{% endblock %} 
+
+
+{% block body %}
+
+{% if editMedecin %}
+    <h2> Modification d'un Medecin</h2>
+{% else %}
+     <h2> Ajout d'un Medecin</h2>
+{% endif %}    
+
+{{ form_start(form) }}
+{# <div class="form-group">
+<div class="col-lg-6">
+ {{ form_row(form.matricule, {'attr' : {'class' : "control", 'readonly' : "true" , 'value' : ((matricule))}} ) }}
+  </div>
+   </div> #}
+   <div class="form-group">
+<div class="col-lg-6">
+ {{ form_row(form.prenom, {'attr' : {'class' : "control", 'placeholder' : "Prénom" }}) }}
+  </div>
+   </div>
+
+   <div class="form-group">
+<div class="col-lg-6">
+ {{ form_row(form.nom, {'attr' : {'class' : "control", 'placeholder' : "Nom" }}) }}
+  </div>
+   </div>
+
+   <div class="form-group">
+<div class="col-lg-6">
+ {{ form_row(form.datenais, { 'label' : 'Date de Naissance' ,'attr' : { 'class' : "control", 'placeholder' : "Date de Naisssance" }}) }}
+  </div>
+   </div>
+
+   <div class="form-group">
+<div class="col-lg-6">
+ {{ form_row(form.telephone, {'label' : 'Téléphone','attr' : {'class' : "control", 'placeholder' : "Téléphone" }}) }}
+
+  </div>
+   </div>
+
+   <div class="form-group">
+<div class="col-lg-6">
+ {{ form_row(form.service, { 'attr' : {'class' : "control"   }}) }}
+  </div>
+   </div>
+
+
+   <div class="form-group">
+<div class="col-lg-6">
+ {{form_row(form.specialite, {  'label' : 'Spécialité', 'attr': { 'class': 'form-control'}}) }}
+  </div>
+   </div>   
+   
+<button type="submit" class="btn btn-primary" > 
+
+{% if editMedecin %}
+    
+    Modifier 
+
+{% else %}
+    
+    Ajouter
+
+{% endif %}
+
+  </button>
+  
+{{form_end(form)}}
+
+
+
+{% endblock %}
+
+
+
+

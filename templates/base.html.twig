@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}SenHopital{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+       {#  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous"> #}
+        {# <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
+       <link rel="stylesheet" href="/css/stylelogin.css" type="tex/css">
+        #}
+
+        {% endblock %}
+    </head>
+    <body>
+{% block nav %}
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">SenHopital</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Acceuil </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle {%  if menu_med is defined and  menu_med == 'medecin' %} active {% endif %}  " href="#" id="navbarDropdown" 
+        role="button" data-toggle="dropdown" aria-haspopup="true" 
+        aria-expanded="false"> Gestion Medecin </a>
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ path('admin.medecin.add') }}">Ajout d'un Medecin</a>
+          <a class="dropdown-item" href="{{ path('admin.medecin.show') }}">Liste des Medecins</a>
+      </li> 
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle {%  if menu_serv is defined and  menu_serv == 'service' %} active {% endif %} " href="#" id="navbarDropdown"
+        role="button" data-toggle="dropdown" aria-haspopup="true" 
+        aria-expanded="false"> Gestion Service </a>
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ path('admin.service.add') }}">Ajout d'un Service</a>
+          <a class="dropdown-item" href="{{ path('admin.service.show') }}">Liste des Services</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle {%  if memu_spec is defined and  memu_spec == 'specialite' %} active {% endif %} " href="#" id="navbarDropdown" 
+        role="button" data-toggle="dropdown" aria-haspopup="true" 
+        aria-expanded="false"> Gestion Spécialité </a>
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ path('admin.specialite.add') }}">Ajout d'une Spécialité </a>
+          <a class="dropdown-item" href="{{ path('admin.specialite.show') }}">Liste des Spécialités</a>
+      </li>
+
+     {# {% if not app.user %} #}
+         
+        {#  <li class="nav-item">
+        <a class="nav-link" href="{{ path('security_login') }}">Connexion</a>
+        </li> #}
+       {#  {% else %} #}
+          
+        <li class="nav-item">
+        <a class="nav-link {%  if memu_logout is defined and  memu_logout == 'logout' %} active {% endif %} " href="{{ path('security_logout') }}">Déconnexion</a>
+        </li>
+       {# {% endif %} #}
+ 
+    </ul>
+</nav>
+    
+{% endblock %}
+
+{% block content %} {% endblock %}
+
+        {% block body %}{% endblock %}
+        <script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js') }}">  </script>
+        
+         <script src="../app.js">  </script> {# lien gerant le select to select dynamique de entre service et specialite #}
+        {% block javascripts %}
+       <script src="https://code.jquery.com/jquery-3.4.1.min.js" {# integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous" #}></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+        
+        
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage des Medecins{% endblock %}
+
+    
+
+{% block content %}
+
+<table  align="center" class="table table-striped">
+    <thead>
+        <tr>
+            
+            <th>Matricule</th>
+             <th>Prenom</th>
+              <th>Nom</th>
+               <th>Date de Naissance</th>
+                <th>Telephone</th>
+            <th>Service</th>
+             <th colspan="5px">Specialite</th>
+            <th>Actions</th>
+                 
+         
+        </tr>
+    </thead>
+    <tbody>
+     {% for medecin in medecins %}
+     
+         <tr>
+         
+          <td> {{ medecin.matricule }} </td>
+          <td> {{ medecin.prenom }} </td>
+          <td> {{ medecin.nom }} </td>
+          <td> {{ medecin.datenais |date('d-m-Y')}} </td>
+          <td> {{ medecin.telephone }} </td>
+          <td> {{ medecin.service.libelle }} </td>
+          
+          {% for medspec in medecin.specialite  %}
+          
+             <td colspan="4px"> {{ medspec.libelle }} </td> 
+          {% endfor %}
+          
+            <td> <a href="{{path('admin.medecin.edit',  { id: medecin.id } ) }}" class="btn btn-outline-primary my-2 my-sm-0"> Modifier </a> </td>
+            <td> <a href="{{path('admin.medecin.delete',  { id: medecin.id } ) }}" class="btn btn-outline-danger my-2 my-sm-0"> Supprimer </a> </td>
+        </tr> 
+         {% endfor %}
+     
+    </tbody>
+</table>
+
+
+
+{% endblock %}

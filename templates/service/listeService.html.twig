@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affiichage des Services{% endblock %}
+
+    
+
+{% block content %}
+
+<table  align="center" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id </th>
+            <th>Libellé</th>
+            <th>Modification</th>
+            <th>Suppression</th>     
+         
+        </tr>
+    </thead>
+    <tbody>
+       {% for service in services %}
+        <tr>
+            <td scope="row">{{ service.id }}</td>
+         
+          <td> {{service.libelle}} </td>
+            <td> <a href="{{path('admin.service.edit',  { id: service.id } ) }}" class="btn btn-outline-primary my-2 my-sm-0"> Modifier </a> </td>
+            <td> <a href="{{path('admin.service.delete', { id: service.id } ) }}" class="btn btn-outline-danger my-2 my-sm-0"> Supprimer </a> </td>
+        </tr>
+         {% endfor %}
+       {#  <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+        </tr> #}
+    </tbody>
+</table>
+
+{% endblock %}
